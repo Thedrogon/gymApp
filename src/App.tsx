@@ -1,19 +1,21 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
+
 import './App.css'
 import Navbar from './components/Navbar'
+import { useState } from 'react'
+import { SelectedPage } from './shared/types';
+
+
 
 function App() {
-  
+  const [selectedPage, setselectedPage] = useState(SelectedPage.Benefits);
 
   return (
     
-      <div className="bg-gray-100 h-screen" >
-        <Navbar />
+      <div className="app bg-gray-100 h-screen" >
+        <Navbar selectedPage={selectedPage} setselectedPage={setselectedPage} />
       </div>
     
   )
 }
 
-export default App
+export default App;
