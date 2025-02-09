@@ -15,6 +15,7 @@ const Link = ({
 }:Props) => {
 
     const lowercasepage = page.toLowerCase().replace(/ /g, "") as SelectedPage;
+    
   return (
     <AnchorLink className={`${selectedPage === lowercasepage ? "text-amber-500" : "text-white"} text-sm`} href={`#${lowercasepage}`} onClick={() => setselectedPage(lowercasepage)}>
         {page}
