@@ -5,6 +5,8 @@ import { SelectedPage } from '../shared/types';
 import Menu from '../assets/menu.svg';
 import Link from './Link';
 import { useState } from 'react';
+import ActionButton from '../shared/ActionButton';
+import { XCircleIcon, } from '@heroicons/react/24/solid'
 
 
 
@@ -18,11 +20,11 @@ function Navbar( {selectedPage, setselectedPage}: Props) {
    const flexdata= "flex items-center justify-between ";
   
     const [isMenuToggled, setIsMenuToggled] = useState(false);
-   const mediaQuery = useMediaQuery("(min-width: 768px)");
+   const mediaQuery = useMediaQuery("(min-width: 1159px)");
 
 
-  return <nav>
-    <div className={`${flexdata} fixed top-0 w-full bg-amber-200 shadow-md`}>
+  return( <nav>
+    <div className={`${flexdata} fixed top-0 w-full  py-4`}>
         <div className={`${flexdata} mx-auto w-5/6 `}>
             <div className={`${flexdata} w-full gap-16`}>
 
@@ -53,8 +55,8 @@ function Navbar( {selectedPage, setselectedPage}: Props) {
                       
                 </div>
                 <div className={`${flexdata} gap-8`}>
-                  <button className="bg-amber-500 rounded-sm p-2">Sign in</button>
-                  <button className="bg-amber-500 rounded-sm p-2">Become a Member</button> 
+                  <p>Sign In</p>
+                  <ActionButton setselectedPage= {setselectedPage}>Become a Member</ActionButton> 
                 </div>
             </div>) : <button className="rounded-full bg-amber-500 p-2" onClick={() => setIsMenuToggled(!isMenuToggled) }>
               <img src={Menu} alt="menu" className='h-6 w-6 text-white' />
@@ -62,10 +64,40 @@ function Navbar( {selectedPage, setselectedPage}: Props) {
         </div>
       </div>
     </div>
+      {/** Mobile Menu */}
+      {!isMenuToggled && !mediaQuery && (
+        <div className='fixed right-0 bottom-0 z-40 h-full w-[300px] bg-amber-100 shadow-md'>
+          <div className='flex justify-end p-12'>
+            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+              <XCircleIcon className='h-6 w-6 text-red-500' />
+            </button>
 
+          </div>
+          <div className='ml-[33%] flex flex-col gap-10 text-2xl'>
+
+            <Link page="Benefits" 
+              selectedPage={selectedPage}
+              setselectedPage={setselectedPage}
+            />
+            <Link  page="Our Classes"
+              selectedPage={selectedPage}
+              setselectedPage={setselectedPage}
+            />
+            <Link page="Contact Us"
+              selectedPage={selectedPage}
+              setselectedPage={setselectedPage}
+            />
+            <Link page="Testimonials"
+              selectedPage={selectedPage}
+              setselectedPage={setselectedPage}
+            />
+            
+          </div>
+
+        </div>
+      )}
   </nav>
-    
-                }
+  )
+}
 
-export default Navbar
-
+export default Navbar;

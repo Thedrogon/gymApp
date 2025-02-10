@@ -11,7 +11,7 @@ function App() {
 
   return (
     
-      <div className="app bg-gray-100 h-screen" >
+      <div className="app bg-amber-100 h-screen" >
         <Navbar selectedPage={selectedPage} setselectedPage={setselectedPage} />
       </div>
     
