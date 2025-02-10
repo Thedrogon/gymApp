@@ -12,5 +12,5 @@ body,
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
   font-weight: 600;
-  color: #6b7280; /* Equivalent to text-gray-500 in Tailwind CSS */
+  /* Equivalent to text-gray-500 in Tailwind CSS */
 }

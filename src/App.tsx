@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { useEffect, useState } from 'react'
 import { SelectedPage } from './shared/types';
+import Home from './components/Home';
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Navbar
         isTopofPage={isTopofPage}
         selectedPage={selectedPage} setselectedPage={setselectedPage} />
+        <Home/>
       </div>
     
   )

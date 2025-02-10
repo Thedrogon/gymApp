@@ -21,7 +21,7 @@ function Navbar( {isTopofPage,selectedPage, setselectedPage}: Props) {
   const flexdata= "flex items-center justify-between ";
   
   const [isMenuToggled, setIsMenuToggled] = useState(false);
-  const mediaQuery = useMediaQuery("(min-width: 1159px)");
+  const mediaQuery = useMediaQuery("(min-width: 1060px)");
   const navBarback = isTopofPage ? " " : "bg-white shadow-md";
 
 
