@@ -1,7 +1,7 @@
 
 import './App.css'
 import Navbar from './components/Navbar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SelectedPage } from './shared/types';
 
 
@@ -9,13 +9,34 @@ import { SelectedPage } from './shared/types';
 function App() {
   const [selectedPage, setselectedPage] = useState(SelectedPage.Benefits);
 
+  const [isTopofPage, setIsTopofPage] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTopofPage(true);
+      } 
+      if(window.scrollY > 0){
+        setIsTopofPage(false); 
+    };
+  }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
+   
   return (
     
       <div className="app bg-amber-100 h-screen" >
-        <Navbar selectedPage={selectedPage} setselectedPage={setselectedPage} />
+        <Navbar
+        isTopofPage={isTopofPage}
+        selectedPage={selectedPage} setselectedPage={setselectedPage} />
       </div>
     
   )
+
 }
 
 export default App;

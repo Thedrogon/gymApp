@@ -11,20 +11,22 @@ import { XCircleIcon, } from '@heroicons/react/24/solid'
 
 
 type Props = {
+    isTopofPage: boolean;
     selectedPage: SelectedPage;
     setselectedPage: (value: SelectedPage) => void; 
 };
 
-function Navbar( {selectedPage, setselectedPage}: Props) {
+function Navbar( {isTopofPage,selectedPage, setselectedPage}: Props) {
 
-   const flexdata= "flex items-center justify-between ";
+  const flexdata= "flex items-center justify-between ";
   
-    const [isMenuToggled, setIsMenuToggled] = useState(false);
-   const mediaQuery = useMediaQuery("(min-width: 1159px)");
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
+  const mediaQuery = useMediaQuery("(min-width: 1159px)");
+  const navBarback = isTopofPage ? " " : "bg-white shadow-md";
 
 
   return( <nav>
-    <div className={`${flexdata} fixed top-0 w-full  py-4`}>
+    <div className={`${navBarback}${flexdata} fixed top-0 w-full  py-4`}>
         <div className={`${flexdata} mx-auto w-5/6 `}>
             <div className={`${flexdata} w-full gap-16`}>
 
@@ -58,7 +60,7 @@ function Navbar( {selectedPage, setselectedPage}: Props) {
                   <p>Sign In</p>
                   <ActionButton setselectedPage= {setselectedPage}>Become a Member</ActionButton> 
                 </div>
-            </div>) : <button className="rounded-full bg-amber-500 p-2" onClick={() => setIsMenuToggled(!isMenuToggled) }>
+            </div>) : <button className="rounded-full bg-red-400 p-2" onClick={() => setIsMenuToggled(!isMenuToggled) }>
               <img src={Menu} alt="menu" className='h-6 w-6 text-white' />
               </button>}
         </div>
