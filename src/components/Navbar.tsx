@@ -21,7 +21,7 @@ function Navbar( {isTopofPage,selectedPage, setselectedPage}: Props) {
   const flexdata= "flex items-center justify-between ";
   
   const [isMenuToggled, setIsMenuToggled] = useState(false);
-  const mediaQuery = useMediaQuery("(min-width: 1060px)");
+  const mediaQuery = useMediaQuery("(min-width: 1200px)");
   const navBarback = isTopofPage ? " " : "bg-white shadow-md";
 
 
@@ -68,7 +68,7 @@ function Navbar( {isTopofPage,selectedPage, setselectedPage}: Props) {
     </div>
       {/** Mobile Menu */}
       {!isMenuToggled && !mediaQuery && (
-        <div className='fixed right-0 bottom-0 z-40 h-full w-[300px] bg-amber-100 shadow-md'>
+        <div className='fixed right-0 bottom-0 z-40 h-full w-[300px] bg-blur bg-amber-100 shadow-md'>
           <div className='flex justify-end p-12'>
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <XCircleIcon className='h-6 w-6 text-red-500' />
