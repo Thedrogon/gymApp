@@ -34,7 +34,7 @@ function App() {
         <Navbar
         isTopofPage={isTopofPage}
         selectedPage={selectedPage} setselectedPage={setselectedPage} />
-        <Home/>
+      <Home setSelectedPage={setselectedPage} />
       </div>
     
   )
